@@ -1,5 +1,14 @@
 body {
-  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
   background: linear-gradient(to top, #e4e5e6, #00416a);
   min-height: 100vh;
+  color: #e4e5e6;
+}
+
+.container {
+}
+
+.button {
+  font-size: large;
 }
