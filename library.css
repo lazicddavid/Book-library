@@ -33,3 +33,9 @@ body {
   align-items: center;
   gap: 20px;
 }
+
+.footer-text p {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
