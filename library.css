@@ -7,17 +7,19 @@ body {
   color: #e4e5e6;
 }
 
-h1 {
+.main-title {
   font-size: 3.3rem;
 }
 
 .btn {
-  color: #00416a;
-  padding: 10px 20px;
+  background-color: #002b46;
+  color: white;
+  padding: 15px 30px;
   cursor: pointer;
   font-size: large;
   border: none;
-  border-radius: 10px;
+  font-weight: 600;
+  border-radius: 40px;
 }
 
 .container {
