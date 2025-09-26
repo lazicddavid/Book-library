@@ -2,6 +2,8 @@ body {
   background: linear-gradient(to top, #e4e5e6, #00416a);
   min-height: 100vh;
   color: #e4e5e6;
+  display: flex;
+  flex-direction: column;
 }
 
 .main-title {
@@ -34,8 +36,8 @@ body {
   gap: 20px;
 }
 
-.footer-text p {
-  align-items: center;
-  display: flex;
-  justify-content: center;
+.footer-text {
+  margin-top: auto; /* gura footer na dno */
+  text-align: center; /* centrira tekst */
+  padding: 15px; /* malo prostora od ivice */
 }
