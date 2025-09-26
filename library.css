@@ -1,4 +1,5 @@
 body {
+  align-items: center;
   display: flex;
   justify-content: center;
   background: linear-gradient(to top, #e4e5e6, #00416a);
