@@ -12,6 +12,8 @@ h1 {
 
 .btn {
   font-size: x-large;
+  border: none;
+  border-radius: 10px;
 }
 
 .container {
