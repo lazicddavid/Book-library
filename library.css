@@ -37,7 +37,7 @@ body {
 }
 
 .footer-text {
-  margin-top: auto; /* gura footer na dno */
-  text-align: center; /* centrira tekst */
-  padding: 15px; /* malo prostora od ivice */
+  margin-top: auto;
+  text-align: center;
+  padding: 15px;
 }
