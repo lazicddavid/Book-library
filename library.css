@@ -1,5 +1,4 @@
 body {
-  align-items: center;
   display: flex;
   justify-content: center;
   background: linear-gradient(to top, #e4e5e6, #00416a);
@@ -7,9 +6,13 @@ body {
   color: #e4e5e6;
 }
 
-.container {
+h1 {
+  font-size: 3.2rem;
 }
 
 .button {
   font-size: large;
+}
+
+.container {
 }
