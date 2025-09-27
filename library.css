@@ -37,9 +37,8 @@ body {
 }
 
 .footer-text {
-  color: rgb(24, 2, 2);
+  color: rgba(24, 2, 2, 0.666);
   margin-top: auto;
   text-align: center;
-
-  font-size: medium;
+  font-size: large;
 }
