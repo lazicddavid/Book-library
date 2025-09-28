@@ -1,14 +1,12 @@
-// Selektori
 const btnNewBook = document.getElementById("btnNewBook");
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
-const closeBtn = document.querySelector(".modal__close");
+const closeBtn = document.querySelector(".modal-close");
 
-// Funkcije
 function openModal() {
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
-  document.body.classList.add("no-scroll"); // sprečava skrol pozadine
+  document.body.classList.add("no-scroll");
 }
 
 function closeModal() {
@@ -17,12 +15,10 @@ function closeModal() {
   document.body.classList.remove("no-scroll");
 }
 
-// Event listeneri
 btnNewBook.addEventListener("click", openModal);
 closeBtn.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
 
-// ESC za zatvaranje
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && !modal.classList.contains("hidden")) {
     closeModal();
