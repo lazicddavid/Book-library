@@ -121,3 +121,8 @@ body {
 .no-scroll {
   overflow: hidden;
 }
+
+.modal.hidden,
+.overlay.hidden {
+  display: none;
+}

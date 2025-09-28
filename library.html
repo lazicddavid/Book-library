@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="library.css" />
     <title>Book library</title>
     <link rel="stylesheet" href="library.css" />
   </head>
@@ -21,9 +22,16 @@
 
     <div class="overlay hidden"></div>
 
-    <div class="modal hidden">
+    <div
+      class="modal hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="dialogTitle"
+    >
       <form id="bookForm" class="modal-box">
-        <button type="button" class="modal__close">✕</button>
+        <button type="button" class="modal__close" aria-label="Close">✕</button>
+
+        <h2 id="dialogTitle" class="main-title">New book</h2>
 
         <label class="row">
           <span>Title of the book:</span>
