@@ -69,10 +69,9 @@ body {
   width: min(880px, 92vw);
   padding: 28px 36px 32px;
   border-radius: 22px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
 }
 
-.modal__close {
+.modal-close {
   position: absolute;
   top: 14px;
   right: 18px;
