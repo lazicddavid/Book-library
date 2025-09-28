@@ -2,24 +2,57 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="library.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book library</title>
+    <link rel="stylesheet" href="library.css" />
   </head>
   <body>
     <div class="container">
       <h1 class="main-title">Book library</h1>
-      <h3 class="text-paragraph">
+      <p class="text-paragraph">
         Use the button below to add to your library and watch your collection
         grow
-      </h3>
+      </p>
 
       <button class="btn" id="btnNewBook">New Book</button>
 
+      <!-- list of books renders here -->
       <div class="book-list" id="bookList"></div>
     </div>
 
+    <!-- Overlay + Modal -->
+    <div class="overlay hidden"></div>
+
+    <div class="modal hidden">
+      <form id="bookForm" class="modal-box">
+        <button type="button" class="modal__close">✕</button>
+
+        <label class="row">
+          <span>Title of the book:</span>
+          <input type="text" id="title" placeholder="Harry Potter" required />
+        </label>
+
+        <label class="row">
+          <span>Author:</span>
+          <input type="text" id="author" placeholder="J.K. Rowling" />
+        </label>
+
+        <label class="row">
+          <span>Number of pages:</span>
+          <input type="number" id="pages" placeholder="500" min="1" />
+        </label>
+
+        <label class="row checkbox">
+          <input type="checkbox" id="read" />
+          <span>Have you read this book?</span>
+        </label>
+
+        <button type="submit" class="btn modal__submit">Submit</button>
+      </form>
+    </div>
+
     <div class="footer-text"><p>© Copyright by David Lazic</p></div>
+
     <script src="library.js"></script>
   </body>
 </html>
