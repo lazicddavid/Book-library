@@ -10,13 +10,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const inputPages = document.getElementById("pages");
   const bookList = document.getElementById("bookList");
 
-  let library = [];
+  const library = []; // const je dovoljno
 
   function openModal() {
     modal.classList.remove("hidden");
     overlay.classList.remove("hidden");
+    // Ako nemaš CSS .no-scroll { overflow:hidden }, izbaci sledeći red
     document.body.classList.add("no-scroll");
   }
+
   function closeModal() {
     modal.classList.add("hidden");
     overlay.classList.add("hidden");
@@ -34,11 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
       card.innerHTML = `
         <h3 class="book-card__title">${book.title}</h3>
         <p class="book-card__meta">
-          Autor: ${book.author || "—"} &nbsp;|&nbsp; Strana: ${
-        book.pages || "—"
+          Autor: ${book.author || "—"} &nbsp;|&nbsp; Strane: ${
+        book.pages ?? "—"
       }
         </p>
-        <button class="btn book-card__remove">Obriši</button>
+        <button class="btn book-card__remove">Delete book</button>
       `;
 
       bookList.appendChild(card);
@@ -49,11 +51,18 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
 
     const title = inputTitle.value.trim();
-    const author = inputAuth.value.trim();
-    const pages = inputPages.value.trim();
+    if (!title) return;
 
-    // pošto su polja required u HTML-u, ovde ne moramo dodatno da proveravamo
-    library.push({ title, author, pages });
+    const author = inputAuth.value.trim();
+    const pagesNum = inputPages.value.trim()
+      ? parseInt(inputPages.value, 10)
+      : null;
+
+    library.push({
+      title,
+      author,
+      pages: Number.isFinite(pagesNum) ? pagesNum : null,
+    });
     render();
 
     bookForm.reset();
@@ -64,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!e.target.classList.contains("book-card__remove")) return;
     const card = e.target.closest(".book-card");
     const idx = Number(card.dataset.index);
+    if (!Number.isInteger(idx)) return;
     library.splice(idx, 1);
     render();
   }
@@ -73,6 +83,4 @@ document.addEventListener("DOMContentLoaded", () => {
   overlay.addEventListener("click", closeModal);
   bookForm.addEventListener("submit", onAddBook);
   bookList.addEventListener("click", onListClick);
-
-  render();
 });
