@@ -3,6 +3,9 @@ const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const closeBtn = document.querySelector(".modal-close");
 
+const bookForm = document.getElementById("bookForm");
+const inTitle = document.get;
+
 function openModal() {
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
