@@ -34,14 +34,12 @@ document.addEventListener("DOMContentLoaded", () => {
       card.dataset.index = index;
 
       card.innerHTML = `
-        <h3 class="book-card__title">${book.title}</h3>
-        <p class="book-card__meta">
-          Autor: ${book.author || "—"} &nbsp;|&nbsp; Strane: ${
-        book.pages ?? "—"
-      }
-        </p>
-        <button class="btn book-card__remove">Delete book</button>
-      `;
+  <h3 class="book-card__title">${book.title}</h3>
+  <p class="book-card__meta">
+    Autor: ${book.author || "—"} | Strane: ${book.pages ?? "—"}
+  </p>
+  <button class="btn book-card__remove">Delete book</button>
+`;
 
       bookList.appendChild(card);
     });
