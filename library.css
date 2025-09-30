@@ -120,3 +120,18 @@ body {
 .overlay.hidden {
   display: none;
 }
+
+.book-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px;
+  margin-top: 10px;
+}
+
+.book-card {
+  padding: 10px;
+  background-color: white;
+  color: #00416a;
+  border-radius: 16px;
+}
