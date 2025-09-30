@@ -20,7 +20,6 @@
     </div>
 
     <div class="overlay hidden"></div>
-
     <div
       class="modal hidden"
       role="dialog"
@@ -31,21 +30,20 @@
         <button type="button" class="modal-close" aria-label="Close">✕</button>
 
         <h2 id="dialogTitle" class="main-title">New book</h2>
-        <section id="books-list " class="books"></section>
 
         <label class="row">
           <span>Title of the book:</span>
-          <input type="text" id="title" placeholder="Harry Poter" />
+          <input type="text" id="title" placeholder="Harry Poter" required />
         </label>
 
         <label class="row">
           <span>Author:</span>
-          <input type="text" id="author" placeholder="J.K. Rowling" />
+          <input type="text" id="author" placeholder="J.K. Rowling" required />
         </label>
 
         <label class="row">
           <span>Number of pages:</span>
-          <input type="number" id="pages" placeholder="500" />
+          <input type="number" id="pages" placeholder="500" min="1" required />
         </label>
 
         <label class="row checkbox">
