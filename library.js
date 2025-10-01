@@ -20,7 +20,10 @@ function closeModal() {
   modal.classList.add("hidden");
   overlay.classList.add("hidden");
 }
-
+//razbij render funkciju na manje metode, addBookToScreen, removeBookFromScreen
+//napravi let varijable za inpute, i sacuvavaj vrednosti iz inputa u njih
+//napravi da kad se strikira knjiga da je procitana, to se prikaze u knjizi na ekranu
+//ako nije strikirana prikaze se X
 function render() {
   bookList.innerHTML = "";
 
@@ -52,7 +55,7 @@ function onAddBook(e) {
     ? parseInt(inputPages.value, 10)
     : null;
 
-  library.push({ title, author, pages: pagesNum });
+  library.push({ id: crypto.randomUUID(), title, author, pages: pagesNum });
   render();
 
   bookForm.reset();
