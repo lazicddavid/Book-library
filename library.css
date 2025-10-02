@@ -137,3 +137,7 @@ body {
   color: #00416a;
   border-radius: 16px;
 }
+
+button {
+  padding: 20px;
+}
