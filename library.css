@@ -138,8 +138,5 @@ body {
   border-radius: 16px;
 }
 
-button {
-  margin: auto;
-  border: #002b46;
-  padding: 20px;
+.book-card {
 }
