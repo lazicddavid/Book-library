@@ -139,6 +139,8 @@ body {
 }
 
 .book-card {
+  justify-content: center;
+  display: block;
   margin: auto;
   background-color: #002b46;
   color: #002b46;
