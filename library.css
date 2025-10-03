@@ -139,6 +139,7 @@ body {
 }
 
 .book-card {
+  width: auto;
   justify-content: center;
   display: block;
   margin: auto;
