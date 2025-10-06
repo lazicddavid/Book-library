@@ -3,7 +3,6 @@
 //napravi da kad se strikira knjiga da je procitana, to se prikaze u knjizi na ekranu
 //ako nije strikirana prikaze se X
 
-// Selectori
 const btnNewBook = document.getElementById("btnNewBook");
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
@@ -15,15 +14,12 @@ const inputAuthor = document.getElementById("author");
 const inputPages = document.getElementById("pages");
 const bookList = document.getElementById("bookList");
 
-// Model
 let library = [];
 
-// Traženo: let promenljive za input vrednosti
 let titleValue = "";
 let authorValue = "";
 let pagesValue = "";
 
-// Sync input -> let promenljive
 inputTitle.addEventListener("input", (e) => (titleValue = e.target.value));
 inputAuthor.addEventListener("input", (e) => (authorValue = e.target.value));
 inputPages.addEventListener("input", (e) => (pagesValue = e.target.value));
@@ -39,16 +35,12 @@ function closeModal() {
   overlay.classList.add("hidden");
 }
 
-// === RENDER: razbijeno na manje funkcije ===
-
-// Dodaj JEDNU knjigu na ekran
 function addBookToScreen(book) {
   const card = document.createElement("div");
   card.className = "book-card";
   card.dataset.id = book.id;
 
-  // status ✓ ili X na osnovu book.read
-  const statusSymbol = book.read ? "✓" : "X";
+  const statusText = book.read ? "✓ read" : "X unread";
 
   card.innerHTML = `
     <h3 class="book-card__title">${book.title}</h3>
@@ -58,12 +50,15 @@ function addBookToScreen(book) {
 
     <div class="book-card__row">
       <label class="book-card__read">
-        <input type="checkbox" class="book-read-checkbox" ${
-          book.read ? "checked" : ""
-        }>
-       Read
+        <input
+          type="checkbox"
+          class="book-read-checkbox"
+          ${book.read ? "checked" : ""}
+          aria-label="Toggle read status"
+          title="Toggle read status"
+        >
       </label>
-      <span class="book-card__status" aria-label="status">${statusSymbol}</span>
+      <span class="book-card__status" aria-live="polite">${statusText}</span>
     </div>
 
     <button class="btn book-card__remove">Delete book</button>
@@ -72,19 +67,16 @@ function addBookToScreen(book) {
   bookList.appendChild(card);
 }
 
-// Ukloni JEDNU knjigu sa ekrana
 function removeBookFromScreen(id) {
   const el = bookList.querySelector(`.book-card[data-id="${id}"]`);
   if (el) el.remove();
 }
 
-// Ponovno iscrtavanje cele liste (poziva addBookToScreen)
 function render() {
   bookList.innerHTML = "";
   library.forEach(addBookToScreen);
 }
 
-// Handleri
 function onAddBook(e) {
   e.preventDefault();
 
@@ -103,15 +95,12 @@ function onAddBook(e) {
     title,
     author,
     pages: Number.isFinite(pagesNum) ? pagesNum : null,
-    read: false, // default: nije pročitana
+    read: false,
   };
 
   library.push(newBook);
-
-  // Dodaj samo novu knjigu na ekran (bez punog rendera)
   addBookToScreen(newBook);
 
-  // Reset forme i let promenljivih
   bookForm.reset();
   titleValue = "";
   authorValue = "";
@@ -123,7 +112,6 @@ function onAddBook(e) {
 function onListClick(e) {
   const target = e.target;
 
-  // Brisanje knjige
   if (target.classList.contains("book-card__remove")) {
     const card = target.closest(".book-card");
     const id = card.dataset.id;
@@ -135,7 +123,6 @@ function onListClick(e) {
 }
 
 function onListChange(e) {
-  // Označavanje „pročitano“
   if (e.target.classList.contains("book-read-checkbox")) {
     const card = e.target.closest(".book-card");
     const id = card.dataset.id;
@@ -145,23 +132,19 @@ function onListChange(e) {
 
     book.read = e.target.checked;
 
-    // Ažuriraj simbol na kartici (✓ / X)
     const statusEl = card.querySelector(".book-card__status");
     statusEl.textContent = book.read ? "✓ read" : "X unread";
   }
 }
 
-// Close modal samo kad kliknemo VAN modala (po želji)
 overlay.addEventListener("click", (e) => {
   if (e.target === overlay) closeModal();
 });
 
-// Events
 btnNewBook.addEventListener("click", openModal);
 btnClose.addEventListener("click", closeModal);
 bookForm.addEventListener("submit", onAddBook);
 bookList.addEventListener("click", onListClick);
 bookList.addEventListener("change", onListChange);
 
-// Init
 render();
