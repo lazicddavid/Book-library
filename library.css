@@ -137,14 +137,3 @@ body {
   color: #00416a;
   border-radius: 16px;
 }
-
-.book-card {
-  width: auto;
-  justify-content: center;
-  display: block;
-  margin: auto;
-  background-color: #002b46;
-  color: #002b46;
-}
-
-blockquote
