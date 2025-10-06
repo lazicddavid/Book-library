@@ -44,7 +44,7 @@ function addBookToScreen(book) {
   card.innerHTML = `
     <h3 class="book-card__title">${book.title}</h3>
     <p class="book-card__info">
-      Autor: ${book.author || "—"} | Pages: ${book.pages ?? "—"}
+      Author: ${book.author || "—"} | Pages: ${book.pages ?? "—"}
     </p>
 
     <div class="book-card__row">
