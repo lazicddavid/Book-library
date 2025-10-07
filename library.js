@@ -7,7 +7,6 @@ const btnNewBook = document.getElementById("btnNewBook");
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const btnClose = document.querySelector(".modal-close");
-
 const bookForm = document.getElementById("bookForm");
 const inputTitle = document.getElementById("title");
 const inputAuthor = document.getElementById("author");
@@ -147,3 +146,14 @@ bookList.addEventListener("click", onListClick);
 bookList.addEventListener("change", onListChange);
 
 render();
+
+//edit : na klik dugmeta edit,
+//naci knjigu sa tim ID-em,
+//zameniti tu knjigu na ekranu sa formom,
+//preko CSS napravi da izgleda isto kao obicna knjga
+//paragrafe (name, author...) zameniti inputima,
+//inpute popuniti vrednostima iz polja koja odgovaraju toj knjizi
+//sva dugmat zameniti (delete, read...) jednim dugmetom finish editing,
+//na klik dugmeta finish editing, ili na enter, pokupiti vrednos iz inputa.
+//naci knjigu u array i apdejtovati joj vrednosti,
+//ponovo zameniti knjigu - iz forme u list element sa novim vrednostima
