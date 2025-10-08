@@ -130,7 +130,7 @@ body {
 }
 
 .book-card {
-  width: 190px;
+  width: 290px;
   height: auto;
   padding: 10px;
   background-color: white;
@@ -140,7 +140,7 @@ body {
 
 .book-card__row {
   width: 100px;
-  height: auto;
+
   font-weight: 600;
   margin: 10px 0;
   color: white;

@@ -9,6 +9,7 @@ const overlay = document.querySelector(".overlay");
 const btnClose = document.querySelector(".modal-close");
 const bookForm = document.getElementById("bookForm");
 const inputTitle = document.getElementById("title");
+
 const inputAuthor = document.getElementById("author");
 const inputPages = document.getElementById("pages");
 const bookList = document.getElementById("bookList");
@@ -157,3 +158,5 @@ render();
 //na klik dugmeta finish editing, ili na enter, pokupiti vrednos iz inputa.
 //naci knjigu u array i apdejtovati joj vrednosti,
 //ponovo zameniti knjigu - iz forme u list element sa novim vrednostima
+
+//organizacija koda ?
