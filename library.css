@@ -72,9 +72,6 @@ body {
 }
 
 .modal-close {
-  position: absolute;
-  top: 14px;
-  right: 18px;
   background: transparent;
   border: 0;
   font-size: 28px;
@@ -130,6 +127,7 @@ body {
 }
 
 .book-card {
+  position: absolute;
   width: 350px;
   height: auto;
   padding: 10px;
@@ -140,7 +138,8 @@ body {
 
 .book-card__row {
   width: 100px;
-
+  position: absolute;
+  transform: translate(50%, -150%);
   font-weight: 600;
   margin: 10px 0;
   color: white;
@@ -161,10 +160,10 @@ body {
 }
 
 .book-card__edit {
-  width: 100px;
+  width: 160px;
 
   font-weight: 600;
-  margin: 10px 0;
+
   color: white;
   background-color: #002b46;
   cursor: pointer;
