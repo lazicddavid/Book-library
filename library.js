@@ -109,15 +109,89 @@ function onAddBook(e) {
 }
 
 function onListClick(e) {
-  const target = e.target;
+  const card = e.target.closest(".book-card");
+  if (!card) return;
+  const id = card.dataset.id;
 
-  if (target.classList.contains("book-card__remove")) {
-    const card = target.closest(".book-card");
-    const id = card.dataset.id;
-
+  // DELETE
+  if (e.target.classList.contains("book-card__remove")) {
     library = library.filter((b) => b.id !== id);
     removeBookFromScreen(id);
     return;
+  }
+
+  // EDIT / FINISH EDITING
+  if (e.target.classList.contains("book-card__edit")) {
+    const book = library.find((b) => b.id === id);
+    if (!book) return;
+
+    const titleEl = card.querySelector(".book-card__title");
+    const infoEl = card.querySelector(".book-card__info");
+    const readRow = card
+      .querySelector(".book-read-checkbox")
+      ?.closest(".book-card__row");
+    const btnRemove = card.querySelector(".book-card__remove");
+    const btnEdit = card.querySelector(".book-card__edit");
+
+    const isEditing = card.dataset.editing === "1";
+
+    if (!isEditing) {
+      // ▶️ ULAZ U EDIT: zameni tekst inputima, sakrij ostala dugmad/reda
+      titleEl.innerHTML = `<input class="rounded-input edit-title" value="${
+        book.title || ""
+      }">`;
+      infoEl.innerHTML = `
+        <input class="rounded-input edit-author" value="${
+          book.author || ""
+        }" placeholder="Author">
+        <input class="rounded-input edit-pages" type="number" value="${
+          book.pages ?? ""
+        }" placeholder="Pages">
+      `;
+      if (readRow) readRow.style.display = "none";
+      if (btnRemove) btnRemove.style.display = "none";
+
+      btnEdit.textContent = "Finish editing";
+      card.dataset.editing = "1";
+      titleEl.querySelector(".edit-title").focus();
+
+      // ENTER potvrđuje izmene
+      card
+        .querySelectorAll(".edit-title, .edit-author, .edit-pages")
+        .forEach((inp) => {
+          inp.addEventListener("keydown", (ev) => {
+            if (ev.key === "Enter") {
+              ev.preventDefault();
+              btnEdit.click();
+            }
+          });
+        });
+      return;
+    }
+
+    // 💾 SAVE: pokupi vrednosti, upiši u niz i vrati prikaz
+    const newTitle = titleEl.querySelector(".edit-title").value.trim();
+    const newAuthor = infoEl.querySelector(".edit-author").value.trim();
+    const pagesRaw = infoEl.querySelector(".edit-pages").value.trim();
+    const pagesNum = pagesRaw === "" ? null : parseInt(pagesRaw, 10);
+    if (!newTitle) {
+      titleEl.querySelector(".edit-title").focus();
+      return;
+    }
+
+    book.title = newTitle;
+    book.author = newAuthor;
+    book.pages = Number.isFinite(pagesNum) ? pagesNum : null;
+
+    titleEl.textContent = book.title;
+    infoEl.textContent = `Author: ${book.author || "—"} | Pages: ${
+      book.pages ?? "—"
+    }`;
+
+    if (readRow) readRow.style.display = "";
+    if (btnRemove) btnRemove.style.display = "";
+    btnEdit.textContent = "Edit";
+    card.dataset.editing = "0";
   }
 }
 

@@ -150,13 +150,12 @@ body {
   border-radius: 40px;
 }
 
-.book-list {
-  background-color: #002b46;
-  height: auto;
-}
-
-body {
-  margin: auto;
-  footer:
-  padding: 0;
+.rounded-input {
+  width: 100%;
+  padding: 10px 16px;
+  border: 1px solid #aaa;
+  border-radius: 18px;
+  font-size: 16px;
+  text-align: center;
+  margin: 8px 0;
 }
