@@ -60,10 +60,10 @@ function addBookToScreen(book) {
       <span class="book-card__status" aria-live="polite">${statusText}</span>
     </div>
 
-  <div class="book-card__row">
+ 
   <button class="btn book-card__remove">Delete book</button>
   <button class="btn book-card__edit">Edit</button>
-</div>
+
 
   `;
 
