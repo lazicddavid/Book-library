@@ -118,6 +118,8 @@ body {
 }
 
 .book-card {
+  width: auto;
+  max-width: fit-content;
   padding: 16px 18px;
   background: #fff;
   color: #00416a;
