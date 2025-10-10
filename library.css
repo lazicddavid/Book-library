@@ -11,6 +11,10 @@ body {
   font-size: 3.3rem;
 }
 
+.text-paragraph {
+  font-size: 2rem;
+}
+
 .btn {
   background-color: #002b46;
   color: white;
