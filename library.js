@@ -144,9 +144,8 @@ function onListClick(e) {
     const btnEdit = card.querySelector(".book-card__edit");
 
     const isEditing = card.dataset.editing === "1";
-
+    //edit opcija
     if (!isEditing) {
-      // ▶️ ULAZ U EDIT: zameni tekst inputima, sakrij ostala dugmad/reda
       titleEl.innerHTML = `<input class="edit-input edit-title" value="${
         book.title || ""
       }">`;
