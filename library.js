@@ -18,6 +18,7 @@ const inputTitle = document.getElementById("title");
 const inputAuthor = document.getElementById("author");
 const inputPages = document.getElementById("pages");
 const bookList = document.getElementById("bookList");
+const inputRead = document.getElementById("read");
 
 let library = [];
 
@@ -178,7 +179,6 @@ function onListClick(e) {
       return;
     }
 
-    // 💾 SAVE: pokupi vrednosti, upiši u niz i vrati prikaz
     const newTitle = titleEl.querySelector(".edit-title").value.trim();
     const newAuthor = infoEl.querySelector(".edit-author").value.trim();
     const pagesRaw = infoEl.querySelector(".edit-pages").value.trim();
