@@ -146,14 +146,14 @@ function onListClick(e) {
 
     if (!isEditing) {
       // ▶️ ULAZ U EDIT: zameni tekst inputima, sakrij ostala dugmad/reda
-      titleEl.innerHTML = `<input class="rounded-input edit-title" value="${
+      titleEl.innerHTML = `<input class="edit-input edit-title" value="${
         book.title || ""
       }">`;
       infoEl.innerHTML = `
-        <input class="rounded-input edit-author" value="${
+        <input class="edit-input edit-author" value="${
           book.author || ""
         }" placeholder="Author">
-        <input class="rounded-input edit-pages" type="number" value="${
+        <input class="edit-input edit-pages" type="number" value="${
           book.pages ?? ""
         }" placeholder="Pages">
       `;
