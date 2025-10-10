@@ -113,10 +113,8 @@ body {
 }
 
 .book-card {
-  width: 350px;
-  height: auto;
-  padding: 10px;
-  background-color: white;
+  padding: 16px 18px;
+  background: #fff;
   color: #00416a;
   border-radius: 16px;
 }
