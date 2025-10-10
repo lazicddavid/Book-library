@@ -11,11 +11,6 @@ body {
   font-size: 3.3rem;
 }
 
-.text-paragraph {
-  margin: 0 auto;
-  font-size: 2rem;
-}
-
 .btn {
   background-color: #002b46;
   color: white;
@@ -109,19 +104,10 @@ body {
   padding: 12px 28px;
 }
 
-.no-scroll {
-  overflow: hidden;
-}
-
-.modal.hidden,
-.overlay.hidden {
-  display: none;
-}
-
 .book-list {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 34px;
   margin-top: 10px;
 }
@@ -134,7 +120,7 @@ body {
   color: #00416a;
   border-radius: 16px;
 }
-
+/*
 .book-card__row {
   width: 100px;
   position: absolute;
@@ -147,7 +133,7 @@ body {
   padding: 15px 30px;
   border-radius: 40px;
 }
-
+*/
 .edit-input {
   padding: 10px 16px;
   border: 1px solid #aaa;
