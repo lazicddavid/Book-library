@@ -126,6 +126,11 @@ body {
   gap: 12px;
   margin: 12px 0 6px;
 }
+
+.book-card__row .btn {
+  margin-left: 8px;
+}
+
 .edit-input {
   padding: 10px 16px;
   border: 1px solid #aaa;
