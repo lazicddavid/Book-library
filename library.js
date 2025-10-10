@@ -29,7 +29,7 @@ let pagesValue = "";
 inputTitle.addEventListener("input", (e) => (titleValue = e.target.value));
 inputAuthor.addEventListener("input", (e) => (authorValue = e.target.value));
 inputPages.addEventListener("input", (e) => (pagesValue = e.target.value));
-
+inputRead.addEventListener("change", (e) => (readValue = e.target.checked));
 function openModal() {
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
