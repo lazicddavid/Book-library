@@ -176,3 +176,17 @@ body {
 .book-card__row + .book-card__row {
   margin-top: 10px;
 }
+
+.book-card__title {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+}
+.book-card__info {
+  margin: 0 0 8px;
+  color: #355;
+}
+
+.modal-close {
+  font-size: 1.7rem;
+  color: indigo;
+}
