@@ -139,7 +139,7 @@ body {
 .book-card__row {
   width: 100px;
   position: absolute;
-  transform: translate(50%, -150%);
+  transform: translate(100%, -150%);
   font-weight: 600;
   margin: 10px 0;
   color: white;

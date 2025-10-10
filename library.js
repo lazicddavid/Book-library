@@ -1,7 +1,13 @@
-//razbij render funkciju na manje metode, addBookToScreen, removeBookFromScreen
-//napravi let varijable za inpute, i sacuvavaj vrednosti iz inputa u njih
-//napravi da kad se strikira knjiga da je procitana, to se prikaze u knjizi na ekranu
-//ako nije strikirana prikaze se X
+//edit : na klik dugmeta edit,
+//naci knjigu sa tim ID-em,
+//zameniti tu knjigu na ekranu sa formom,
+//preko CSS napravi da izgleda isto kao obicna knjga
+//paragrafe (name, author...) zameniti inputima,
+//inpute popuniti vrednostima iz polja koja odgovaraju toj knjizi
+//sva dugmat zameniti (delete, read...) jednim dugmetom finish editing,
+//na klik dugmeta finish editing, ili na enter, pokupiti vrednos iz inputa.
+//naci knjigu u array i apdejtovati joj vrednosti,
+//ponovo zameniti knjigu - iz forme u list element sa novim vrednostima
 
 const btnNewBook = document.getElementById("btnNewBook");
 const modal = document.querySelector(".modal");
@@ -9,7 +15,6 @@ const overlay = document.querySelector(".overlay");
 const btnClose = document.querySelector(".modal-close");
 const bookForm = document.getElementById("bookForm");
 const inputTitle = document.getElementById("title");
-
 const inputAuthor = document.getElementById("author");
 const inputPages = document.getElementById("pages");
 const bookList = document.getElementById("bookList");
@@ -117,14 +122,14 @@ function onListClick(e) {
   if (!card) return;
   const id = card.dataset.id;
 
-  // DELETE
+  //brisanje
   if (e.target.classList.contains("book-card__remove")) {
     library = library.filter((b) => b.id !== id);
     removeBookFromScreen(id);
     return;
   }
 
-  // EDIT / FINISH EDITING
+  //editovanje
   if (e.target.classList.contains("book-card__edit")) {
     const book = library.find((b) => b.id === id);
     if (!book) return;
@@ -159,7 +164,7 @@ function onListClick(e) {
       card.dataset.editing = "1";
       titleEl.querySelector(".edit-title").focus();
 
-      // ENTER potvrđuje izmene
+      //enter za potrvrdu
       card
         .querySelectorAll(".edit-title, .edit-author, .edit-pages")
         .forEach((inp) => {
@@ -225,16 +230,3 @@ bookList.addEventListener("click", onListClick);
 bookList.addEventListener("change", onListChange);
 
 render();
-
-//edit : na klik dugmeta edit,
-//naci knjigu sa tim ID-em,
-//zameniti tu knjigu na ekranu sa formom,
-//preko CSS napravi da izgleda isto kao obicna knjga
-//paragrafe (name, author...) zameniti inputima,
-//inpute popuniti vrednostima iz polja koja odgovaraju toj knjizi
-//sva dugmat zameniti (delete, read...) jednim dugmetom finish editing,
-//na klik dugmeta finish editing, ili na enter, pokupiti vrednos iz inputa.
-//naci knjigu u array i apdejtovati joj vrednosti,
-//ponovo zameniti knjigu - iz forme u list element sa novim vrednostima
-
-//organizacija koda ?
