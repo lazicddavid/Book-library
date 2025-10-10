@@ -18,18 +18,15 @@ const inputTitle = document.getElementById("title");
 const inputAuthor = document.getElementById("author");
 const inputPages = document.getElementById("pages");
 const bookList = document.getElementById("bookList");
-const inputRead = document.getElementById("read");
 
 let library = [];
-let readValue = false;
 let titleValue = "";
 let authorValue = "";
 let pagesValue = "";
-
+//unosi u inpute, formu//
 inputTitle.addEventListener("input", (e) => (titleValue = e.target.value));
 inputAuthor.addEventListener("input", (e) => (authorValue = e.target.value));
 inputPages.addEventListener("input", (e) => (pagesValue = e.target.value));
-inputRead.addEventListener("change", (e) => (readValue = e.target.checked));
 
 function openModal() {
   modal.classList.remove("hidden");
@@ -82,11 +79,6 @@ function removeBookFromScreen(id) {
   if (el) el.remove();
 }
 
-function render() {
-  bookList.innerHTML = "";
-  library.forEach(addBookToScreen);
-}
-
 function onAddBook(e) {
   e.preventDefault();
 
@@ -105,7 +97,7 @@ function onAddBook(e) {
     title,
     author,
     pages: Number.isFinite(pagesNum) ? pagesNum : null,
-    read: readValue,
+    read: false,
   };
 
   library.push(newBook);
@@ -178,7 +170,7 @@ function onListClick(e) {
         });
       return;
     }
-
+    //deo za save
     const newTitle = titleEl.querySelector(".edit-title").value.trim();
     const newAuthor = infoEl.querySelector(".edit-author").value.trim();
     const pagesRaw = infoEl.querySelector(".edit-pages").value.trim();
@@ -187,7 +179,7 @@ function onListClick(e) {
       titleEl.querySelector(".edit-title").focus();
       return;
     }
-
+    //nakon editovanja
     book.title = newTitle;
     book.author = newAuthor;
     book.pages = Number.isFinite(pagesNum) ? pagesNum : null;
@@ -228,5 +220,3 @@ btnClose.addEventListener("click", closeModal);
 bookForm.addEventListener("submit", onAddBook);
 bookList.addEventListener("click", onListClick);
 bookList.addEventListener("change", onListChange);
-
-render();
