@@ -127,7 +127,6 @@ body {
 }
 
 .book-card {
-  position: absolute;
   width: 350px;
   height: auto;
   padding: 10px;
@@ -150,7 +149,6 @@ body {
 }
 
 .edit-input {
-  width: 100%;
   padding: 10px 16px;
   border: 1px solid #aaa;
   border-radius: 18px;
@@ -161,9 +159,7 @@ body {
 
 .book-card__edit {
   width: 160px;
-
   font-weight: 600;
-
   color: white;
   background-color: #002b46;
   cursor: pointer;
