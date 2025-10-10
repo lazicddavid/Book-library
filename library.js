@@ -21,7 +21,7 @@ const bookList = document.getElementById("bookList");
 const inputRead = document.getElementById("read");
 
 let library = [];
-
+let readValue = false;
 let titleValue = "";
 let authorValue = "";
 let pagesValue = "";
