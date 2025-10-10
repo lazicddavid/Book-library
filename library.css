@@ -104,6 +104,11 @@ body {
   padding: 12px 28px;
 }
 
+.modal.hidden,
+.overlay.hidden {
+  display: none;
+}
+
 .book-list {
   width: 100%;
   display: grid;
@@ -122,9 +127,16 @@ body {
 .book-card__row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin: 12px 0 6px;
+  background-color: #002b46;
+  color: white;
+  padding: 15px 30px;
+  cursor: pointer;
+  font-size: large;
+  border: none;
+  margin: 10px 0;
+  width: 100px;
+  font-weight: 600;
+  border-radius: 40px;
 }
 
 .book-card__row .btn {
@@ -132,12 +144,17 @@ body {
 }
 
 .edit-input {
+  margin-left: 10px;
+  width: 100%;
+  height: 44px;
   padding: 10px 16px;
+  box-sizing: border-box;
   border: 1px solid #aaa;
   border-radius: 18px;
   font-size: 16px;
   text-align: center;
-  margin: 8px 0;
+  color: #0f1f29;
+  background: #fff;
 }
 
 .book-card__edit {
